@@ -32,7 +32,7 @@ function bookingAppListener(m) {
             message.event === "booking" &&
             message.from === "api"
         ) {
-            trackBooking(message.payload.amount, message.payload.code);
+            trackBooking(message.payload.subtotal, message.payload.code);
         }
     } catch (e) {
         //console.error(e);
