@@ -27,16 +27,15 @@ var queryString = queryString || {
 function bookingAppListener(m) {
     try {
         const message = JSON.parse(m.data);
+        if (
+            message.type === "response" &&
+            message.event === "booking" &&
+            message.from === "api"
+        ) {
+            trackBooking(message.payload.amount, message.payload.code);
+        }
     } catch (e) {
         //console.error(e);
-        return;
-    }
-    if (
-        message.type === "response" &&
-        message.event === "booking" &&
-        message.from === "api"
-    ) {
-        trackBooking(message.payload.amount, message.payload.code);
     }
 }
 
