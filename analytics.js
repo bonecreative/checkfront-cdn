@@ -111,7 +111,7 @@ function trackBooking(amount, booking_id) {
 
 function trackTrafficSource() {
     // Parse the query parameters from the URL
-    const queryParams = queryString.parse(window.location.search);
+    const queryParams = queryString.parse(window.location.toString());
 
     // Detect the traffic source based on the query parameters
     let trafficSource = {};
