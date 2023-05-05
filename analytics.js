@@ -63,11 +63,14 @@ function trackBooking(amount, booking_id) {
         case "google":
             // Google Ads conversion tracking
             if (typeof gtag === "function") {
-                gtag("event", "conversion", {
+                gtag("event", "purchase", {
                     send_to: GOOGLE_PROPERTY_ID,
                     value: amount,
                     currency: CURRENCY,
-                    transaction_id: booking_id
+                    transaction_id: booking_id,
+                    items: [{
+                        price: amount
+                    }]
                 });
             }
             break;
